@@ -1,1 +1,105 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Express Logistics</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f5fa;
+  color: #142b49;
+}
+header {
+  background: #102747;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+header h1 { margin: 0; }
+header p { color: orange; }
+.hero {
+  background: #1c416c;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+.tracking {
+  background: white;
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+input {
+  width: 90%;
+  padding: 14px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  background: #f28c18;
+  color: white;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+footer {
+  background: #102747;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>GLOBAL EXPRESS LOGISTICS</h1>
+<p>FAST. SAFE. RELIABLE.</p>
+</header>
+
+<div class="hero">
+<h2>Your Trusted Global Shipping Partner</h2>
+<p>We provide safe, secure and reliable package delivery services.</p>
+</div>
+
+<div class="tracking">
+<h2>TRACK YOUR PACKAGE</h2>
+<p>Enter your tracking number below.</p>
+
+<input id="trackingNumber" placeholder="Enter tracking number">
+<button onclick="trackPackage()">TRACK SHIPMENT</button>
+
+<div id="result"></div>
+</div>
+
+<footer>
+<p>GLOBAL EXPRESS LOGISTICS</p>
+<p>Fast. Safe. Reliable.</p>
+<p>© 2026 Global Express Logistics</p>
+</footer>
+
+<script>
+function trackPackage() {
+  let code = document.getElementById("trackingNumber").value.trim().toUpperCase();
+  let result = document.getElementById("result");
+
+  if (code === "GLX123456") {
+    result.innerHTML = "<h3>Shipment Found</h3><p>Status: In Transit</p><p>Location: Lagos, Nigeria</p>";
+  } else if (code === "GLX987654") {
+    result.innerHTML = "<h3>Shipment Found</h3><p>Status: Delivered</p><p>Location: Frankfurt, Germany</p>";
+  } else {
+    result.innerHTML = "<p>Tracking number not found.</p>";
+  }
+}
+</script>
+
+</body>
+  </html>
