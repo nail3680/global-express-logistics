@@ -87,19 +87,30 @@ footer {
 </footer>
 
 <script>
-function trackPackage() {
-  let code = document.getElementById("trackingNumber").value.trim().toUpperCase();
-  let result = document.getElementById("result");
 
-  if (code === "GLX123456") {
-    result.innerHTML = "<h3>Shipment Found</h3><p>Status: In Transit</p><p>Location: Lagos, Nigeria</p>";
-  } else if (code === "GLX987654") {
-    result.innerHTML = "<h3>Shipment Found</h3><p>Status: Delivered</p><p>Location: Frankfurt, Germany</p>";
-  } else {
-    result.innerHTML = "<p>Tracking number not found.</p>";
+  function trackPackage() {
+    let code = document.getElementById("trackingNumber").value.trim().toUpperCase();
+    let result = document.getElementById("result");
+
+    const shipments = {
+        "GLX123456": ["In Transit", "Dallas, Texas"],
+        "GLX123457": ["In Transit", "Houston, Texas"],
+        "GLX123458": ["Picked Up", "Austin, Texas"],
+        "GLX123459": ["In Transit", "New York, New York"],
+        "GLX123460": ["Out for Delivery", "Los Angeles, California"],
+        "GLX123461": ["In Transit", "Chicago, Illinois"],
+        "GLX123462": ["In Transit", "Miami, Florida"],
+        "GLX123463": ["Picked Up", "Atlanta, Georgia"],
+        "GLX123464": ["In Transit", "Washington, DC"],
+        "GLX123465": ["Delivered", "Phoenix, Arizona"]
+    };
+
+    if (shipments[code]) {
+        result.innerHTML =
+            "<h3>Shipment Found</h3>" +
+            "<p>Status: " + shipments[code][0] + "</p>" +
+            "<p>Location: " + shipments[code][1] + "</p>";
+    } else {
+        result.innerHTML = "<p>Tracking number not found.</p>";
+    }
   }
-}
-</script>
-
-</body>
-  </html>
